@@ -7,8 +7,7 @@ LOBs can consume a lot of space. Db2 Adpative Compression can compress inline LO
 ## Status
 Imitial testing suggests that the code is working as intended. However, a number of checks need to be made before it could be considered for production use.
 
-See also the comments in [(Early preview)https://github.com/easydataservices/db2-compress/discussions/2]
-According to the Db2 manuals, Java UDFs do not support input or output LOB parameters! However the documentation appears possibly inconsistent in places, and may be out of date. I intend to clarify this with IBM over the coming weeks.
+See also the comments in [Early preview of db2-compress](https://github.com/easydataservices/db2-compress/discussions/2).
 
 ## Important considerations
 Even if the code is valid, consider this:
