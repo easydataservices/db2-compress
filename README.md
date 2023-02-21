@@ -7,7 +7,7 @@ LOBs can consume a lot of space. Db2 Adpative Compression can compress inline LO
 ## Status
 Imitial testing suggests that the code is working as intended. However, a number of checks need to be made before it could be considered for production use.
 
-According to the Db2 manuals, Java UDFs do not support input or out
+According to the Db2 manuals, Java UDFs do not support input or output LOB parameters! However the documentation appears possibly inconsistent in places, and may be out of date. I intend to clarify this with IBM over the coming weeks.
 
 ## Important considerations
 Even if the code is valid, consider this:
