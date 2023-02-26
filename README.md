@@ -27,6 +27,6 @@ Even if the code is valid, consider that:
     1. Execute the amended SQL, e.g.: ``CALL sqlj.install_jar('file:/home/jsmith/myjars/db2-compress.jar', 'UTILS.GZIPJAR');``
 1. Change to the reate the functions: db2 -tf functions.sql
 
-The functions should now be usable, e.g. ``VALUES utils.gzip_compress(cast('test' as blob));``
+The functions should now be usable, e.g. ``VALUES utils.gzip_compress(CAST('test' as BLOB));``
 
 Note that gzip compression can result in bigger output than input when the input data length is small or is data that will not compress well.
