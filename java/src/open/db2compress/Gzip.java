@@ -15,7 +15,7 @@ import sqlj.runtime.ref.DefaultContext;
  */
 
 public class Gzip {
-  final private static int BUFSIZE = 32768;
+  final private static int BUFSIZE = 1048576;
 
   /**
    * Compress a BLOB using Java gzip compression.
