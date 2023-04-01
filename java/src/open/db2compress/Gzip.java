@@ -16,6 +16,7 @@ import sqlj.runtime.ref.DefaultContext;
 
 public class Gzip {
   final private static int BUFSIZE = 1048576;
+  final private static int GZIPBUFSIZE = 65536;
 
   /**
    * Compress a BLOB using Java gzip compression.
@@ -41,7 +42,7 @@ public class Gzip {
     
     // Compress.
     byte[] bytes = new byte[BUFSIZE];
-    try (GZIPOutputStream gzipOutputStream = new GZIPOutputStream(compressedBlob.setBinaryStream(1))) {
+    try (GZIPOutputStream gzipOutputStream = new GZIPOutputStream(compressedBlob.setBinaryStream(1), GZIPBUFSIZE)) {
       int index = 0;
       while (index < blob.length()) {
         int length = BUFSIZE;
@@ -84,7 +85,7 @@ public class Gzip {
 
     // Uncompress.
     byte[] bytes = new byte[BUFSIZE];
-    try (GZIPInputStream gzipInputStream = new GZIPInputStream(compressedBlob.getBinaryStream())) {
+    try (GZIPInputStream gzipInputStream = new GZIPInputStream(compressedBlob.getBinaryStream(), GZIPBUFSIZE)) {
       int index = 0;
       int length = 1;
       while (length > 0) {
