@@ -21,6 +21,8 @@ Release 0.1 is the initial release.
 
 The functions should now be usable, e.g. ``VALUES utils.gzip_compress(CAST('test' as BLOB));``
 
+> Note: You can edit the functions before creating them, to accept and return larger BLOBs. However, read the notes below related to performance. For BLOBs larger than 64MB, you will also need to increase the JAVA_HEAP_SZ.
+
 ## Important notes
 1. GZIP compression can result in bigger output than input when the input data length is small or is data that will not compress well.
 1. Performance is not scintillating. The sample 25MB JSON text file used for testing compresses in about 2 seconds and uncompresses in about 1 second. For similar data, execution times are more-or-less proportional to input length. For uses such as a JSON document archive (write once read seldom-if-ever) this may be adequate, depending on your requirements and design. However, it is unlikely this solution should be used in a context where response is paramount.
