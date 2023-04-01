@@ -5,11 +5,7 @@ Db2 for LUW UDFs for compressing and uncompressing BLOBs
 LOBs can consume a lot of space. Db2 Adpative Compression can compress inline LOBs, but unfortunately there is no in-built feature for compressing larger LOBs. This project repository provides UDFs that use Java GZIP compressiion to do just that for BLOBs.
 
 ## Status
-Initial testing (Db2 for LUW 11.5.8) suggests that the code is working as intended. Further testing has resulted in tuned buffer sizes and substantial performance increases (described further in Discussions).
-
-> Note: IBM Case TS012225198 has confirmed that the approach is valid. Specifically, a Java UDF may now return a LOB data type (and documentation that says otherwise will be updated). Thank you to Jian and the developers at IBM for their help resolving this.
-
-Further testing will now be performed, with a view to a release soon.
+Release 0.1 is the initial release.
 
 ## Quick installation instructions
 1. Compile the functions using the Ant XML build file.
