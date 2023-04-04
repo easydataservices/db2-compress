@@ -1,7 +1,6 @@
 package com.easydataservices.open.db2compress;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
