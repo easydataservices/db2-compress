@@ -114,6 +114,11 @@ public class Gzip {
       throw new SQLException("Input cannot be null", "72001");
     }
   
+    // Return 0 if BLOB is zero length.
+    if (blob.length() == 0) {
+      return 0;
+    }
+  
     // Return CRC32 value.
     CRC32 crc32 = new CRC32();
     byte[] bytes = new byte[BUFSIZE];
@@ -136,9 +141,9 @@ public class Gzip {
    * @return CRC32 checksum of uncompressed BLOB.
    */
   public static long compressedBlobCRC32(Blob compressedBlob) throws SQLException {
-    // Throw exception for null input.
-    if (compressedBlob == null) {
-      throw new SQLException("Input cannot be null", "72001");
+    // Throw exception for null or zero length input.
+    if (compressedBlob == null || compressedBlob.length() == 0) {
+      throw new SQLException("Input cannot be null or zero length", "72001");
     }
 
     // Return CRC32 value.
@@ -161,3 +166,4 @@ public class Gzip {
     return crc32.getValue();
   }
 }
+
